@@ -90,4 +90,14 @@ router.get('/view', async function (req, res, next) {
     res.render('viewIMG', {data: (imgass[0])})
 });
 
+
+//dang JSON
+router.get('/getJSON', function (req, res) {
+
+    const ListImageAPI = mongoose.model('images_ass_server', imagesSchema);
+
+    ListImageAPI.find({}, function (error, result) {
+        res.send(result);
+    })
+})
 module.exports = router;
